@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ user, isSuperAdmin }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -10,6 +10,8 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbar">
           <ul className="navbar-nav">
+            {user && isSuperAdmin && <li className="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>}
+            {user && <li className="nav-item"><Link className="nav-link" to="/community">Community</Link></li>}
             <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
           </ul>

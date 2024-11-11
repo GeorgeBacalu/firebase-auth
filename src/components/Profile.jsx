@@ -10,7 +10,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUserData = async () =>
-      auth.onAuthStateChanged(async (user) => {
+      auth.onAuthStateChanged(async user => {
         if (user) {
           const docRef = doc(db, "users", user.uid);
           const docSnap = await getDoc(docRef);
